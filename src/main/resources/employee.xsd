@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://sewerynkamil.pl/soap"
+           targetNamespace="http://sewerynkamil.pl/soap"
+>
+    <xs:element name="getEmployee">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getResponseEmployee">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employee"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="employee">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="surname" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
