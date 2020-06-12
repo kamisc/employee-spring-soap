@@ -1,5 +1,5 @@
 
-package domain.employee;
+package com.sewerynkamil.employeespringsoap.soap.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,8 +18,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="surname" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
+ *         &lt;element name="employee" type="{http://sewerynkamil.pl/employee}employee"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,63 +30,63 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name",
-    "surname"
+    "serviceStatus",
+    "employee"
 })
-@XmlRootElement(name = "updateEmployeeRequest", namespace = "http://sewerynkamil.pl/employee")
-public class UpdateEmployeeRequest {
+@XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
+public class AddEmployeeResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected String name;
+    protected ServiceStatus serviceStatus;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected String surname;
+    protected Employee employee;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the serviceStatus property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ServiceStatus }
      *     
      */
-    public String getName() {
-        return name;
+    public ServiceStatus getServiceStatus() {
+        return serviceStatus;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the serviceStatus property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ServiceStatus }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setServiceStatus(ServiceStatus value) {
+        this.serviceStatus = value;
     }
 
     /**
-     * Gets the value of the surname property.
+     * Gets the value of the employee property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Employee }
      *     
      */
-    public String getSurname() {
-        return surname;
+    public Employee getEmployee() {
+        return employee;
     }
 
     /**
-     * Sets the value of the surname property.
+     * Sets the value of the employee property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Employee }
      *     
      */
-    public void setSurname(String value) {
-        this.surname = value;
+    public void setEmployee(Employee value) {
+        this.employee = value;
     }
 
 }

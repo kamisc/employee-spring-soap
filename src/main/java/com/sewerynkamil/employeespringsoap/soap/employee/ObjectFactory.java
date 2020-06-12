@@ -1,5 +1,5 @@
 
-package domain.employee;
+package com.sewerynkamil.employeespringsoap.soap.employee;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

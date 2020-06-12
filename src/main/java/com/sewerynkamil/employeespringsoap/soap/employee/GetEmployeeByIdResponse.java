@@ -1,5 +1,5 @@
 
-package domain.employee;
+package com.sewerynkamil.employeespringsoap.soap.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
  *         &lt;element name="employee" type="{http://sewerynkamil.pl/employee}employee"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -30,40 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "serviceStatus",
     "employee"
 })
-@XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
-public class AddEmployeeResponse {
+@XmlRootElement(name = "getEmployeeByIdResponse", namespace = "http://sewerynkamil.pl/employee")
+public class GetEmployeeByIdResponse {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected ServiceStatus serviceStatus;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected Employee employee;
-
-    /**
-     * Gets the value of the serviceStatus property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ServiceStatus }
-     *     
-     */
-    public ServiceStatus getServiceStatus() {
-        return serviceStatus;
-    }
-
-    /**
-     * Sets the value of the serviceStatus property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ServiceStatus }
-     *     
-     */
-    public void setServiceStatus(ServiceStatus value) {
-        this.serviceStatus = value;
-    }
 
     /**
      * Gets the value of the employee property.

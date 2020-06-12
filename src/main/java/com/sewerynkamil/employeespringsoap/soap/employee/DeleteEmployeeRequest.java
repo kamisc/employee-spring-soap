@@ -1,5 +1,5 @@
 
-package domain.employee;
+package com.sewerynkamil.employeespringsoap.soap.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "serviceStatus"
 })
-@XmlRootElement(name = "deleteEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
-public class DeleteEmployeeResponse {
+@XmlRootElement(name = "deleteEmployeeRequest", namespace = "http://sewerynkamil.pl/employee")
+public class DeleteEmployeeRequest {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected ServiceStatus serviceStatus;
