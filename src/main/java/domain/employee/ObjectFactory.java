@@ -1,5 +1,5 @@
 
-package employee;
+package domain.employee;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

@@ -1,5 +1,5 @@
 
-package employee;
+package domain.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="employee" type="{http://sewerynkamil.pl/employee}employee"/>
+ *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "employee"
+    "serviceStatus"
 })
-@XmlRootElement(name = "getEmployeeByIdResponse", namespace = "http://sewerynkamil.pl/employee")
-public class GetEmployeeByIdResponse {
+@XmlRootElement(name = "deleteEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
+public class DeleteEmployeeResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected Employee employee;
+    protected ServiceStatus serviceStatus;
 
     /**
-     * Gets the value of the employee property.
+     * Gets the value of the serviceStatus property.
      * 
      * @return
      *     possible object is
-     *     {@link Employee }
+     *     {@link ServiceStatus }
      *     
      */
-    public Employee getEmployee() {
-        return employee;
+    public ServiceStatus getServiceStatus() {
+        return serviceStatus;
     }
 
     /**
-     * Sets the value of the employee property.
+     * Sets the value of the serviceStatus property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Employee }
+     *     {@link ServiceStatus }
      *     
      */
-    public void setEmployee(Employee value) {
-        this.employee = value;
+    public void setServiceStatus(ServiceStatus value) {
+        this.serviceStatus = value;
     }
 
 }

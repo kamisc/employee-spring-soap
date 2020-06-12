@@ -1,5 +1,5 @@
 
-package employee;
+package domain.employee;
 
 import java.util.ArrayList;
 import java.util.List;
