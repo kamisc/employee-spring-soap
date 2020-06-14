@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "serviceStatus"
+    "id"
 })
 @XmlRootElement(name = "deleteEmployeeRequest", namespace = "http://sewerynkamil.pl/employee")
 public class DeleteEmployeeRequest {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected ServiceStatus serviceStatus;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee")
+    protected long id;
 
     /**
-     * Gets the value of the serviceStatus property.
+     * Gets the value of the id property.
      * 
-     * @return
-     *     possible object is
-     *     {@link ServiceStatus }
-     *     
      */
-    public ServiceStatus getServiceStatus() {
-        return serviceStatus;
+    public long getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the serviceStatus property.
+     * Sets the value of the id property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link ServiceStatus }
-     *     
      */
-    public void setServiceStatus(ServiceStatus value) {
-        this.serviceStatus = value;
+    public void setId(long value) {
+        this.id = value;
     }
 
 }
