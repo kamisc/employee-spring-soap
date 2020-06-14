@@ -93,7 +93,7 @@ public class EmployeeEndpoint {
 
             boolean flag = employeeService.updateEmployee(employeeFromDB);
 
-            if (flag == false) {
+            if (!flag) {
                 serviceStatus.setStatusCode("CONFLICT");
                 serviceStatus.setMessage("Exception while updating Employee = " + request.getSurname());
             } else {
@@ -112,11 +112,17 @@ public class EmployeeEndpoint {
         DeleteEmployeeResponse response = new DeleteEmployeeResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
-        boolean flag = employeeService.deleteEmployeeById(request.)
+        boolean flag = employeeService.deleteEmployeeById(request.getId());
+
+        if (!flag) {
+            serviceStatus.setStatusCode("FAIL");
+            serviceStatus.setMessage("Exception while deleting Employee id = " + request.getId());
+        } else {
+            serviceStatus.setStatusCode("SUCCESS");
+            serviceStatus.setMessage("Employee deleted successfully");
+        }
+
+        response.setServiceStatus(serviceStatus);
+        return response;
     }
-
-
-
-
-
 }
