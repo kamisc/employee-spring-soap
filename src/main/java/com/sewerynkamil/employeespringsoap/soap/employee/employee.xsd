@@ -14,7 +14,7 @@
     <xs:element name="getEmployeeByIdResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="employee" type="tns:employee"/>
+                <xs:element name="employeeType" type="tns:employeeType"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -25,7 +25,7 @@
     <xs:element name="getAllEmployeesResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="employee" type="tns:employee" maxOccurs="unbounded"/>
+                <xs:element name="employeeType" type="tns:employeeType" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -42,7 +42,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="serviceStatus" type="tns:serviceStatus"/>
-                <xs:element name="employee" type="tns:employee"/>
+                <xs:element name="employeeType" type="tns:employeeType"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -78,7 +78,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="employee">
+    <xs:complexType name="employeeType">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
             <xs:element name="name" type="xs:string"/>

@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
- *         &lt;element name="employee" type="{http://sewerynkamil.pl/employee}employee"/>
+ *         &lt;element name="employeeType" type="{http://sewerynkamil.pl/employee}employeeType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "serviceStatus",
-    "employee"
+    "employeeType"
 })
 @XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
 public class AddEmployeeResponse {
@@ -39,7 +39,7 @@ public class AddEmployeeResponse {
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected ServiceStatus serviceStatus;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected Employee employee;
+    protected EmployeeType employeeType;
 
     /**
      * Gets the value of the serviceStatus property.
@@ -66,27 +66,27 @@ public class AddEmployeeResponse {
     }
 
     /**
-     * Gets the value of the employee property.
+     * Gets the value of the employeeType property.
      * 
      * @return
      *     possible object is
-     *     {@link Employee }
+     *     {@link EmployeeType }
      *     
      */
-    public Employee getEmployee() {
-        return employee;
+    public EmployeeType getEmployeeType() {
+        return employeeType;
     }
 
     /**
-     * Sets the value of the employee property.
+     * Sets the value of the employeeType property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Employee }
+     *     {@link EmployeeType }
      *     
      */
-    public void setEmployee(Employee value) {
-        this.employee = value;
+    public void setEmployeeType(EmployeeType value) {
+        this.employeeType = value;
     }
 
 }

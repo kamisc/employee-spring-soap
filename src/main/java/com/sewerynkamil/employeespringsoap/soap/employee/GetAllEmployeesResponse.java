@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="employee" type="{http://sewerynkamil.pl/employee}employee" maxOccurs="unbounded"/>
+ *         &lt;element name="employeeType" type="{http://sewerynkamil.pl/employee}employeeType" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,41 +31,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "employee"
+    "employeeType"
 })
 @XmlRootElement(name = "getAllEmployeesResponse", namespace = "http://sewerynkamil.pl/employee")
 public class GetAllEmployeesResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected List<Employee> employee;
+    protected List<EmployeeType> employeeType;
 
     /**
-     * Gets the value of the employee property.
+     * Gets the value of the employeeType property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the employee property.
+     * This is why there is not a <CODE>set</CODE> method for the employeeType property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getEmployee().add(newItem);
+     *    getEmployeeType().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Employee }
+     * {@link EmployeeType }
      * 
      * 
      */
-    public List<Employee> getEmployee() {
-        if (employee == null) {
-            employee = new ArrayList<Employee>();
+    public List<EmployeeType> getEmployeeType() {
+        if (employeeType == null) {
+            employeeType = new ArrayList<EmployeeType>();
         }
-        return this.employee;
+        return this.employeeType;
     }
 
 }
