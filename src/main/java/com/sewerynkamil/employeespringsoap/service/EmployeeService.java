@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class EmployeeService {
 
-    public EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
     public EmployeeService(EmployeeRepository employeeRepository) {
