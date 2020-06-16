@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="surname" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
@@ -30,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "id",
     "name",
     "surname"
 })
@@ -37,9 +39,35 @@ import javax.xml.bind.annotation.XmlType;
 public class UpdateEmployeeRequest {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
+    protected Long id;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected String name;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected String surname;
+
+    /**
+     * Gets the value of the name property.
+     *
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the name property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *
+     */
+    public void setId(Long value) {
+        this.id = value;
+    }
 
     /**
      * Gets the value of the name property.

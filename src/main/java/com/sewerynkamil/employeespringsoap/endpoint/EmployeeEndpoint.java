@@ -82,7 +82,7 @@ public class EmployeeEndpoint {
         UpdateEmployeeResponse response = new UpdateEmployeeResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
-        Employee employeeFromDB = employeeService.getEmployeeBySurname(request.getSurname());
+        Employee employeeFromDB = employeeService.getEmployeeById(request.getId());
 
         if (employeeFromDB == null) {
             serviceStatus.setStatusCode("NOT FOUND");
