@@ -76,7 +76,7 @@ public class EmployeeEndpoint {
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE, localPart = "updateEmployee")
+    @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE, localPart = "updateEmployeeRequest")
     @ResponsePayload
     public UpdateEmployeeResponse updateEmployee(@RequestPayload UpdateEmployeeRequest request) {
         UpdateEmployeeResponse response = new UpdateEmployeeResponse();
