@@ -23,18 +23,33 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
-    @Bean(name = "employees")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema) {
+    @Bean(name = "employee")
+    public DefaultWsdl11Definition employeeWsdl11Definition(XsdSchema employee) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("EmployeesPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://sewerynkamil.pl/employee");
-        wsdl11Definition.setSchema(schema);
+        wsdl11Definition.setSchema(employee);
         return wsdl11Definition;
     }
 
-    @Bean
+    @Bean(name = "employeeFile")
+    public DefaultWsdl11Definition employeeFileWsdl11Definition(XsdSchema employeeFile) {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("EmployeeFilesPort");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("http://sewerynkamil.pl/employeeFile");
+        wsdl11Definition.setSchema(employeeFile);
+        return wsdl11Definition;
+    }
+
+    @Bean(name = "employee")
     public XsdSchema employeesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("/xsd/employee.xsd"));
+    }
+
+    @Bean(name = "employeeFile")
+    public XsdSchema employeeFilesSchema() {
+        return new SimpleXsdSchema(new ClassPathResource("/xsd/employeeFile.xsd"));
     }
 }
