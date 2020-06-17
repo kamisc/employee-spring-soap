@@ -15,7 +15,7 @@ public class EmployeeFileService {
         this.employeeFileRepository = employeeFileRepository;
     }
 
-    public EmployeeFile getEmployeeById(Long id) {
+    public EmployeeFile getEmployeeFileById(Long id) {
         return employeeFileRepository.findById(id).get();
     }
 
@@ -28,7 +28,7 @@ public class EmployeeFileService {
         }
     }
 
-    public boolean updateEmployee(EmployeeFile employeeFile) {
+    public boolean updateEmployeeFile(EmployeeFile employeeFile) {
         try {
             employeeFileRepository.save(employeeFile);
             return true;
