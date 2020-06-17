@@ -23,7 +23,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
-    @Bean(name = "employee")
+    @Bean(name = "employees")
     public DefaultWsdl11Definition employeeWsdl11Definition(XsdSchema employee) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("EmployeesPort");
@@ -33,7 +33,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
-    @Bean(name = "employeeFile")
+    @Bean(name = "employeeFiles")
     public DefaultWsdl11Definition employeeFileWsdl11Definition(XsdSchema employeeFile) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("EmployeeFilesPort");
