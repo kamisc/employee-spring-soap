@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://sewerynkamil.pl/employeeFile"
+           targetNamespace="http://sewerynkamil.pl/employeeFile"
+           elementFormDefault="qualified"
+>
+    <xs:element name="getEmployeeFileByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getEmployeeFileByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employeeFileType" type="tns:employeeFileType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addEmployeeFileRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pesel" type="xs:long"/>
+                <xs:element name="street" type="xs:string"/>
+                <xs:element name="city" type="xs:string"/>
+                <xs:element name="zipCode" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xs:element name="employeeFileType" type="tns:employeeFileType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateEmployeeFileRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="pesel" type="xs:long"/>
+                <xs:element name="street" type="xs:string"/>
+                <xs:element name="city" type="xs:string"/>
+                <xs:element name="zipCode" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="updateEmployeeFileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteEmployeeFileRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteEmployeeFileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="employeeFileType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="pesel" type="xs:long"/>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="zipCode" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
