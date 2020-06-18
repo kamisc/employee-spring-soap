@@ -52,7 +52,7 @@ public class UpdateEmployeeFileRequest {
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected String city;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
-    protected BigInteger zipCode;
+    protected Integer zipCode;
 
     /**
      * Gets the value of the id property.
@@ -139,10 +139,10 @@ public class UpdateEmployeeFileRequest {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public BigInteger getZipCode() {
+    public Integer getZipCode() {
         return zipCode;
     }
 
@@ -151,10 +151,10 @@ public class UpdateEmployeeFileRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Integer }
      *     
      */
-    public void setZipCode(BigInteger value) {
+    public void setZipCode(Integer value) {
         this.zipCode = value;
     }
 

@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
     "employeeFileType"
 })
 @XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employeeFile")
-public class AddEmployeeResponse {
+public class AddEmployeeFileResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected ServiceStatus serviceStatus;
