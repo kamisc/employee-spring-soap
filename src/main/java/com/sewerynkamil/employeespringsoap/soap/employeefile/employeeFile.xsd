@@ -22,14 +22,14 @@
     <xs:element name="addEmployeeFileRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="pesel" type="xs:long"/>
+                <xs:element name="pesel" type="xs:string"/>
                 <xs:element name="street" type="xs:string"/>
                 <xs:element name="city" type="xs:string"/>
                 <xs:element name="zipCode" type="xs:integer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="addEmployeeResponse">
+    <xs:element name="addEmployeeFileResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="serviceStatus" type="tns:serviceStatus"/>
@@ -42,7 +42,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:long"/>
-                <xs:element name="pesel" type="xs:long"/>
+                <xs:element name="pesel" type="xs:string"/>
                 <xs:element name="street" type="xs:string"/>
                 <xs:element name="city" type="xs:string"/>
                 <xs:element name="zipCode" type="xs:integer"/>
@@ -75,7 +75,7 @@
     <xs:complexType name="employeeFileType">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
-            <xs:element name="pesel" type="xs:long"/>
+            <xs:element name="pesel" type="xs:string"/>
             <xs:element name="street" type="xs:string"/>
             <xs:element name="city" type="xs:string"/>
             <xs:element name="zipCode" type="xs:integer"/>

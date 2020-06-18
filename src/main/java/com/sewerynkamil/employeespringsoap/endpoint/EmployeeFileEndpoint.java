@@ -40,7 +40,7 @@ public class EmployeeFileEndpoint {
         EmployeeFileType newEmployeeFileType = new EmployeeFileType();
         ServiceStatus serviceStatus = new ServiceStatus();
 
-        EmployeeFile newEmployeeFile = new EmployeeFile();
+        EmployeeFile newEmployeeFile = new EmployeeFile(request.getPesel(), request.getStreet(), request.getCity(), request.getZipCode());
         EmployeeFile savedEmployeeFile = employeeFileService.addEmployeeFile(newEmployeeFile);
 
         if (savedEmployeeFile == null) {

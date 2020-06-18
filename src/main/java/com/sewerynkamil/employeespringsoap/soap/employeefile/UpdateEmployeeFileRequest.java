@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="street" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="zipCode" type="{http://www.w3.org/2001/XMLSchema}integer"/>
@@ -45,14 +45,14 @@ public class UpdateEmployeeFileRequest {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
     protected long id;
-    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
-    protected long pesel;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
+    protected String pesel;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected String street;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected String city;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
-    protected Integer zipCode;
+    protected BigInteger zipCode;
 
     /**
      * Gets the value of the id property.
@@ -73,16 +73,24 @@ public class UpdateEmployeeFileRequest {
     /**
      * Gets the value of the pesel property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
     /**
      * Sets the value of the pesel property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setPesel(long value) {
+    public void setPesel(String value) {
         this.pesel = value;
     }
 
@@ -139,10 +147,10 @@ public class UpdateEmployeeFileRequest {
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link BigInteger }
      *     
      */
-    public Integer getZipCode() {
+    public BigInteger getZipCode() {
         return zipCode;
     }
 
@@ -151,10 +159,10 @@ public class UpdateEmployeeFileRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link BigInteger }
      *     
      */
-    public void setZipCode(Integer value) {
+    public void setZipCode(BigInteger value) {
         this.zipCode = value;
     }
 

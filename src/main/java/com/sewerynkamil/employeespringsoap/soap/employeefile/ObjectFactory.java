@@ -78,11 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AddEmployeeFileResponse }
+     * Create an instance of {@link UpdateEmployeeFileResponse }
      * 
      */
-    public AddEmployeeFileResponse createAddEmployeeResponse() {
-        return new AddEmployeeFileResponse();
+    public UpdateEmployeeFileResponse createUpdateEmployeeFileResponse() {
+        return new UpdateEmployeeFileResponse();
     }
 
     /**
@@ -94,11 +94,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateEmployeeFileResponse }
+     * Create an instance of {@link AddEmployeeFileResponse }
      * 
      */
-    public UpdateEmployeeFileResponse createUpdateEmployeeFileResponse() {
-        return new UpdateEmployeeFileResponse();
+    public AddEmployeeFileResponse createAddEmployeeFileResponse() {
+        return new AddEmployeeFileResponse();
     }
 
     /**

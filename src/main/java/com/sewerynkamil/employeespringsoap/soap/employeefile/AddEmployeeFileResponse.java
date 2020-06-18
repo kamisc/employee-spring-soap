@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
     "serviceStatus",
     "employeeFileType"
 })
-@XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employeeFile")
+@XmlRootElement(name = "addEmployeeFileResponse", namespace = "http://sewerynkamil.pl/employeeFile")
 public class AddEmployeeFileResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)

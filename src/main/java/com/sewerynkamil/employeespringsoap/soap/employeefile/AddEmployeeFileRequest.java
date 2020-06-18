@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="street" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="zipCode" type="{http://www.w3.org/2001/XMLSchema}integer"/>
@@ -41,8 +41,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "addEmployeeFileRequest", namespace = "http://sewerynkamil.pl/employeeFile")
 public class AddEmployeeFileRequest {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
-    protected long pesel;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
+    protected String pesel;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected String street;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
@@ -53,16 +53,24 @@ public class AddEmployeeFileRequest {
     /**
      * Gets the value of the pesel property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getPesel() {
+    public String getPesel() {
         return pesel;
     }
 
     /**
      * Sets the value of the pesel property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setPesel(long value) {
+    public void setPesel(String value) {
         this.pesel = value;
     }
 
