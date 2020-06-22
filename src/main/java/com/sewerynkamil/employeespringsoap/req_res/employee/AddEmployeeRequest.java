@@ -1,5 +1,5 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employee;
+package com.sewerynkamil.employeespringsoap.req_res.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -1,5 +1,5 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employeefile;
+package com.sewerynkamil.employeespringsoap.req_res.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employeeFile}serviceStatus"/>
+ *         &lt;element name="employeeType" type="{http://sewerynkamil.pl/employee}employeeType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "serviceStatus"
+    "employeeType"
 })
-@XmlRootElement(name = "deleteEmployeeFileResponse", namespace = "http://sewerynkamil.pl/employeeFile")
-public class DeleteEmployeeFileResponse {
+@XmlRootElement(name = "getEmployeeByIdResponse", namespace = "http://sewerynkamil.pl/employee")
+public class GetEmployeeByIdResponse {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
-    protected ServiceStatus serviceStatus;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
+    protected EmployeeType employeeType;
 
     /**
-     * Gets the value of the serviceStatus property.
+     * Gets the value of the employeeType property.
      * 
      * @return
      *     possible object is
-     *     {@link ServiceStatus }
+     *     {@link EmployeeType }
      *     
      */
-    public ServiceStatus getServiceStatus() {
-        return serviceStatus;
+    public EmployeeType getEmployeeType() {
+        return employeeType;
     }
 
     /**
-     * Sets the value of the serviceStatus property.
+     * Sets the value of the employeeType property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ServiceStatus }
+     *     {@link EmployeeType }
      *     
      */
-    public void setServiceStatus(ServiceStatus value) {
-        this.serviceStatus = value;
+    public void setEmployeeType(EmployeeType value) {
+        this.employeeType = value;
     }
 
 }

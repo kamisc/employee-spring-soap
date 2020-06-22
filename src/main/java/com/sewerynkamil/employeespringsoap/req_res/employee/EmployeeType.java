@@ -1,20 +1,19 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employee;
+package com.sewerynkamil.employeespringsoap.req_res.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for employeeType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="employeeType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -30,42 +29,33 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "employeeType", namespace = "http://sewerynkamil.pl/employee", propOrder = {
     "id",
     "name",
     "surname"
 })
-@XmlRootElement(name = "updateEmployeeRequest", namespace = "http://sewerynkamil.pl/employee")
-public class UpdateEmployeeRequest {
+public class EmployeeType {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
-    protected Long id;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee")
+    protected long id;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected String name;
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected String surname;
 
     /**
-     * Gets the value of the name property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *
+     * Gets the value of the id property.
+     * 
      */
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
     /**
-     * Sets the value of the name property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *
+     * Sets the value of the id property.
+     * 
      */
-    public void setId(Long value) {
+    public void setId(long value) {
         this.id = value;
     }
 

@@ -2,7 +2,7 @@ package com.sewerynkamil.employeespringsoap.endpoint;
 
 import com.sewerynkamil.employeespringsoap.domain.Employee;
 import com.sewerynkamil.employeespringsoap.service.EmployeeService;
-import com.sewerynkamil.employeespringsoap.soap.employee.*;
+import com.sewerynkamil.employeespringsoap.req_res.employee.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

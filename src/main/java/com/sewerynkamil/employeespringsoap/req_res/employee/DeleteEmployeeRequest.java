@@ -1,5 +1,5 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employeefile;
+package com.sewerynkamil.employeespringsoap.req_res.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,10 +31,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "id"
 })
-@XmlRootElement(name = "deleteEmployeeFileRequest", namespace = "http://sewerynkamil.pl/employeeFile")
-public class DeleteEmployeeFileRequest {
+@XmlRootElement(name = "deleteEmployeeRequest", namespace = "http://sewerynkamil.pl/employee")
+public class DeleteEmployeeRequest {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee")
     protected long id;
 
     /**

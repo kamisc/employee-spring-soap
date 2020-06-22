@@ -1,24 +1,24 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employeefile;
+package com.sewerynkamil.employeespringsoap.req_res.employeefile;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for employeeFileType complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="employeeFileType">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="street" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -32,17 +32,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "employeeFileType", namespace = "http://sewerynkamil.pl/employeeFile", propOrder = {
-    "id",
+@XmlType(name = "", propOrder = {
     "pesel",
     "street",
     "city",
     "zipCode"
 })
-public class EmployeeFileType {
+@XmlRootElement(name = "addEmployeeFileRequest", namespace = "http://sewerynkamil.pl/employeeFile")
+public class AddEmployeeFileRequest {
 
-    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
-    protected long id;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
     protected long pesel;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
@@ -51,22 +49,6 @@ public class EmployeeFileType {
     protected String city;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected BigInteger zipCode;
-
-    /**
-     * Gets the value of the id property.
-     * 
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * Sets the value of the id property.
-     * 
-     */
-    public void setId(long value) {
-        this.id = value;
-    }
 
     /**
      * Gets the value of the pesel property.

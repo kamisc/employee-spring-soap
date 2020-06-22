@@ -1,5 +1,5 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employee;
+package com.sewerynkamil.employeespringsoap.req_res.employee;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employee}serviceStatus"/>
+ *         &lt;element name="employeeType" type="{http://sewerynkamil.pl/employee}employeeType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +30,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "serviceStatus"
+    "serviceStatus",
+    "employeeType"
 })
-@XmlRootElement(name = "updateEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
-public class UpdateEmployeeResponse {
+@XmlRootElement(name = "addEmployeeResponse", namespace = "http://sewerynkamil.pl/employee")
+public class AddEmployeeResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
     protected ServiceStatus serviceStatus;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employee", required = true)
+    protected EmployeeType employeeType;
 
     /**
      * Gets the value of the serviceStatus property.
@@ -59,6 +63,30 @@ public class UpdateEmployeeResponse {
      */
     public void setServiceStatus(ServiceStatus value) {
         this.serviceStatus = value;
+    }
+
+    /**
+     * Gets the value of the employeeType property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link EmployeeType }
+     *     
+     */
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    /**
+     * Sets the value of the employeeType property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link EmployeeType }
+     *     
+     */
+    public void setEmployeeType(EmployeeType value) {
+        this.employeeType = value;
     }
 
 }

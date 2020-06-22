@@ -1,5 +1,5 @@
 
-package com.sewerynkamil.employeespringsoap.soap.employeefile;
+package com.sewerynkamil.employeespringsoap.req_res.employeefile;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="serviceStatus" type="{http://sewerynkamil.pl/employeeFile}serviceStatus"/>
+ *         &lt;element name="employeeFileType" type="{http://sewerynkamil.pl/employeeFile}employeeFileType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "serviceStatus"
+    "employeeFileType"
 })
-@XmlRootElement(name = "updateEmployeeFileResponse", namespace = "http://sewerynkamil.pl/employeeFile")
-public class UpdateEmployeeFileResponse {
+@XmlRootElement(name = "getEmployeeFileByIdResponse", namespace = "http://sewerynkamil.pl/employeeFile")
+public class GetEmployeeFileByIdResponse {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
-    protected ServiceStatus serviceStatus;
+    protected EmployeeFileType employeeFileType;
 
     /**
-     * Gets the value of the serviceStatus property.
+     * Gets the value of the employeeFileType property.
      * 
      * @return
      *     possible object is
-     *     {@link ServiceStatus }
+     *     {@link EmployeeFileType }
      *     
      */
-    public ServiceStatus getServiceStatus() {
-        return serviceStatus;
+    public EmployeeFileType getEmployeeFileType() {
+        return employeeFileType;
     }
 
     /**
-     * Sets the value of the serviceStatus property.
+     * Sets the value of the employeeFileType property.
      * 
      * @param value
      *     allowed object is
-     *     {@link ServiceStatus }
+     *     {@link EmployeeFileType }
      *     
      */
-    public void setServiceStatus(ServiceStatus value) {
-        this.serviceStatus = value;
+    public void setEmployeeFileType(EmployeeFileType value) {
+        this.employeeFileType = value;
     }
 
 }
