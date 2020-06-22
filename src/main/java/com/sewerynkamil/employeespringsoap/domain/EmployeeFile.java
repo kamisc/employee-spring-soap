@@ -10,6 +10,7 @@ public class EmployeeFile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long employeeId;
     private Long pesel;
     private String street;
     private String city;
@@ -18,11 +19,20 @@ public class EmployeeFile {
     public EmployeeFile() {
     }
 
-    public EmployeeFile(Long pesel, String street, String city, BigInteger zipCode) {
+    public EmployeeFile(Long employeeId, Long pesel, String street, String city, BigInteger zipCode) {
+        this.employeeId = employeeId;
         this.pesel = pesel;
         this.street = street;
         this.city = city;
         this.zipCode = zipCode;
+    }
+
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
     public Long getId() {
