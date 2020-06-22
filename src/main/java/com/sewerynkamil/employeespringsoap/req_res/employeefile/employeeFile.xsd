@@ -22,6 +22,7 @@
     <xs:element name="addEmployeeFileRequest">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="employeeId" type="xs:long"/>
                 <xs:element name="pesel" type="xs:long"/>
                 <xs:element name="street" type="xs:string"/>
                 <xs:element name="city" type="xs:string"/>

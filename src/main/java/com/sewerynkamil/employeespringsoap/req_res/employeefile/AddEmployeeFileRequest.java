@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="employeeId" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="pesel" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="street" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -33,6 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "employeeId",
     "pesel",
     "street",
     "city",
@@ -42,6 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 public class AddEmployeeFileRequest {
 
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
+    protected long employeeId;
+    @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile")
     protected long pesel;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected String street;
@@ -49,6 +53,22 @@ public class AddEmployeeFileRequest {
     protected String city;
     @XmlElement(namespace = "http://sewerynkamil.pl/employeeFile", required = true)
     protected BigInteger zipCode;
+
+    /**
+     * Gets the value of the employeeId property.
+     * 
+     */
+    public long getEmployeeId() {
+        return employeeId;
+    }
+
+    /**
+     * Sets the value of the employeeId property.
+     * 
+     */
+    public void setEmployeeId(long value) {
+        this.employeeId = value;
+    }
 
     /**
      * Gets the value of the pesel property.
