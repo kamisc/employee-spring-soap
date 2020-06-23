@@ -12,6 +12,9 @@ public class Employee {
     private String name;
     private String surname;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private EmployeeFile employeeFile;
+
     public Employee() {
     }
 
@@ -42,5 +45,13 @@ public class Employee {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public EmployeeFile getEmployeeFile() {
+        return employeeFile;
+    }
+
+    public void setEmployeeFile(EmployeeFile employeeFile) {
+        this.employeeFile = employeeFile;
     }
 }
