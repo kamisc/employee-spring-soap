@@ -1,8 +1,10 @@
 package com.sewerynkamil.employeespringsoap.endpoint;
 
+import com.sewerynkamil.employeespringsoap.domain.Employee;
 import com.sewerynkamil.employeespringsoap.domain.EmployeeFile;
 import com.sewerynkamil.employeespringsoap.service.EmployeeFileService;
 import com.sewerynkamil.employeespringsoap.req_res.employeefile.*;
+import com.sewerynkamil.employeespringsoap.service.EmployeeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -16,10 +18,12 @@ public class EmployeeFileEndpoint {
     public static final String NAMESPACE_URI_EMPLOYEE_FILE = "http://sewerynkamil.pl/employeeFile";
 
     private EmployeeFileService employeeFileService;
+    private EmployeeService employeeService;
 
     @Autowired
-    public EmployeeFileEndpoint(EmployeeFileService employeeFileService) {
+    public EmployeeFileEndpoint(EmployeeFileService employeeFileService, EmployeeService employeeService) {
         this.employeeFileService = employeeFileService;
+        this.employeeService = employeeService;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE_FILE, localPart = "getEmployeeFileByIdRequest")
@@ -39,9 +43,13 @@ public class EmployeeFileEndpoint {
         AddEmployeeFileResponse response = new AddEmployeeFileResponse();
         EmployeeFileType newEmployeeFileType = new EmployeeFileType();
         ServiceStatus serviceStatus = new ServiceStatus();
+        Employee employee = employeeService.getEmployeeById(request.getEmployeeId());
 
         EmployeeFile newEmployeeFile = new EmployeeFile(request.getEmployeeId(), request.getPesel(), request.getStreet(), request.getCity(), request.getZipCode());
         EmployeeFile savedEmployeeFile = employeeFileService.addEmployeeFile(newEmployeeFile);
+
+        employee.setEmployeeFile(savedEmployeeFile);
+        employeeService.updateEmployee(employee);
 
         if (savedEmployeeFile == null) {
             serviceStatus.setStatusCode("CONFLICT");
