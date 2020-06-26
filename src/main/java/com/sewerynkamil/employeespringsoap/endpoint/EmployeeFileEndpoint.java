@@ -2,10 +2,10 @@ package com.sewerynkamil.employeespringsoap.endpoint;
 
 import com.sewerynkamil.employeespringsoap.domain.Employee;
 import com.sewerynkamil.employeespringsoap.domain.EmployeeFile;
+import com.sewerynkamil.employeespringsoap.mapper.EmployeeFileMapper;
 import com.sewerynkamil.employeespringsoap.service.EmployeeFileService;
 import com.sewerynkamil.employeespringsoap.req_res.employeefile.*;
 import com.sewerynkamil.employeespringsoap.service.EmployeeService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -19,21 +19,22 @@ public class EmployeeFileEndpoint {
 
     private EmployeeFileService employeeFileService;
     private EmployeeService employeeService;
+    private EmployeeFileMapper employeeFileMapper;
 
     @Autowired
-    public EmployeeFileEndpoint(EmployeeFileService employeeFileService, EmployeeService employeeService) {
+    public EmployeeFileEndpoint(EmployeeFileService employeeFileService, EmployeeService employeeService, EmployeeFileMapper employeeFileMapper) {
         this.employeeFileService = employeeFileService;
         this.employeeService = employeeService;
+        this.employeeFileMapper = employeeFileMapper;
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE_FILE, localPart = "getEmployeeFileByIdRequest")
     @ResponsePayload
     public GetEmployeeFileByIdResponse getEmployeeFileById(@RequestPayload GetEmployeeFileByIdRequest request) {
         GetEmployeeFileByIdResponse response = new GetEmployeeFileByIdResponse();
-        EmployeeFile employeeFile = employeeFileService.getEmployeeFileById(request.getId());
-        EmployeeFileType employeeFileType = new EmployeeFileType();
-        BeanUtils.copyProperties(employeeFile, employeeFileType);
-        response.setEmployeeFileType(employeeFileType);
+        response.setEmployeeFileType(
+                employeeFileMapper.mapToEmployeeFileType(
+                        employeeFileService.getEmployeeFileById(request.getId())));
         return response;
     }
 
@@ -41,13 +42,16 @@ public class EmployeeFileEndpoint {
     @ResponsePayload
     public AddEmployeeFileResponse addEmployeeFile(@RequestPayload AddEmployeeFileRequest request) {
         AddEmployeeFileResponse response = new AddEmployeeFileResponse();
-        EmployeeFileType newEmployeeFileType = new EmployeeFileType();
         ServiceStatus serviceStatus = new ServiceStatus();
+        EmployeeFile savedEmployeeFile = employeeFileService.addEmployeeFile(
+                new EmployeeFile(
+                        request.getEmployeeId(),
+                        request.getPesel(),
+                        request.getStreet(),
+                        request.getCity(),
+                        request.getZipCode()));
+
         Employee employee = employeeService.getEmployeeById(request.getEmployeeId());
-
-        EmployeeFile newEmployeeFile = new EmployeeFile(request.getEmployeeId(), request.getPesel(), request.getStreet(), request.getCity(), request.getZipCode());
-        EmployeeFile savedEmployeeFile = employeeFileService.addEmployeeFile(newEmployeeFile);
-
         employee.setEmployeeFile(savedEmployeeFile);
         employeeService.updateEmployee(employee);
 
@@ -55,12 +59,11 @@ public class EmployeeFileEndpoint {
             serviceStatus.setStatusCode("CONFLICT");
             serviceStatus.setMessage("Exception while adding new Employee File");
         } else {
-            BeanUtils.copyProperties(savedEmployeeFile, newEmployeeFileType);
             serviceStatus.setStatusCode("SUCCESS");
             serviceStatus.setMessage("Employee File added successfully");
         }
 
-        response.setEmployeeFileType(newEmployeeFileType);
+        response.setEmployeeFileType(employeeFileMapper.mapToEmployeeFileType(savedEmployeeFile));
         response.setServiceStatus(serviceStatus);
 
         return response;
