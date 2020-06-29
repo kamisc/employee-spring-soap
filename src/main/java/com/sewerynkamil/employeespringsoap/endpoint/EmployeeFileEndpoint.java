@@ -2,6 +2,7 @@ package com.sewerynkamil.employeespringsoap.endpoint;
 
 import com.sewerynkamil.employeespringsoap.domain.Employee;
 import com.sewerynkamil.employeespringsoap.domain.EmployeeFile;
+import com.sewerynkamil.employeespringsoap.domain.exception.EmployeeNotFoundException;
 import com.sewerynkamil.employeespringsoap.mapper.EmployeeFileMapper;
 import com.sewerynkamil.employeespringsoap.service.EmployeeFileService;
 import com.sewerynkamil.employeespringsoap.req_res.employeefile.*;
@@ -40,7 +41,7 @@ public class EmployeeFileEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE_FILE, localPart = "addEmployeeFileRequest")
     @ResponsePayload
-    public AddEmployeeFileResponse addEmployeeFile(@RequestPayload AddEmployeeFileRequest request) {
+    public AddEmployeeFileResponse addEmployeeFile(@RequestPayload AddEmployeeFileRequest request) throws EmployeeNotFoundException {
         AddEmployeeFileResponse response = new AddEmployeeFileResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
         EmployeeFile savedEmployeeFile = employeeFileService.addEmployeeFile(
