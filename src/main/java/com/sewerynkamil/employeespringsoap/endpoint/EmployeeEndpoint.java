@@ -1,6 +1,7 @@
 package com.sewerynkamil.employeespringsoap.endpoint;
 
 import com.sewerynkamil.employeespringsoap.domain.Employee;
+import com.sewerynkamil.employeespringsoap.domain.exception.EmployeeNotFoundException;
 import com.sewerynkamil.employeespringsoap.mapper.EmployeeMapper;
 import com.sewerynkamil.employeespringsoap.service.EmployeeService;
 import com.sewerynkamil.employeespringsoap.req_res.employee.*;
@@ -26,7 +27,7 @@ public class EmployeeEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE, localPart = "getEmployeeByIdRequest")
     @ResponsePayload
-    public GetEmployeeByIdResponse getEmployeeById(@RequestPayload GetEmployeeByIdRequest request) {
+    public GetEmployeeByIdResponse getEmployeeById(@RequestPayload GetEmployeeByIdRequest request) throws EmployeeNotFoundException {
         GetEmployeeByIdResponse response = new GetEmployeeByIdResponse();
         response.setEmployeeType(
                 employeeMapper.mapToEmployeeType(
@@ -66,7 +67,7 @@ public class EmployeeEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI_EMPLOYEE, localPart = "updateEmployeeRequest")
     @ResponsePayload
-    public UpdateEmployeeResponse updateEmployee(@RequestPayload UpdateEmployeeRequest request) {
+    public UpdateEmployeeResponse updateEmployee(@RequestPayload UpdateEmployeeRequest request) throws EmployeeNotFoundException {
         UpdateEmployeeResponse response = new UpdateEmployeeResponse();
         ServiceStatus serviceStatus = new ServiceStatus();
 
@@ -98,17 +99,7 @@ public class EmployeeEndpoint {
     @ResponsePayload
     public DeleteEmployeeResponse deleteEmployee(@RequestPayload DeleteEmployeeRequest request) {
         DeleteEmployeeResponse response = new DeleteEmployeeResponse();
-        ServiceStatus serviceStatus = new ServiceStatus();
-
-        boolean flag = employeeService.deleteEmployeeById(request.getId());
-
-        if (!flag) {
-            serviceStatus.setStatusCode("FAIL");
-            serviceStatus.setMessage("Exception while deleting Employee id = " + request.getId());
-        } else {
-            serviceStatus.setStatusCode("SUCCESS");
-            serviceStatus.setMessage("Employee deleted successfully");
-        }
+        ServiceStatus serviceStatus = employeeService.deleteEmployeeById(request.getId());
 
         response.setServiceStatus(serviceStatus);
         return response;
