@@ -44,14 +44,14 @@ public class EmployeeService {
         return true;
     }
 
-    public boolean deleteEmployeeById(Long id) {
+    public ServiceStatus deleteEmployeeById(Long id) {
         ServiceStatus serviceStatus = new ServiceStatus();
 
         try {
             employeeRepository.deleteById(id);
             serviceStatus.setStatusCode("SUCCESS");
             serviceStatus.setMessage("Employee deleted successfully");
-            return true;
+            return serviceStatus;
         } catch (Exception e) {
             String errorMessage = "ERROR";
             serviceStatus.setStatusCode("NOT_FOUND");
